@@ -1,10 +1,10 @@
-import StudentCard from "./StudentCard";
+import StudentList from "./StudentList";
 
 function App() {
   return (
     <div>
       <h1>Forum Information Academy</h1>
-      <StudentCard />
+      <StudentList />
     </div>
   );
 }
