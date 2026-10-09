@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 
+from .filters import StudentFilter
 from .models import AttendanceRecord, Student
 from .serializers import (
     AttendanceRecordSerializer,
