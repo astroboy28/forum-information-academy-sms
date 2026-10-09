@@ -1,3 +1,4 @@
+import { useState } from "react";
 import StudentCard from "./StudentCard";
 
 const students = [
@@ -7,12 +8,27 @@ const students = [
 ];
 
 function StudentList() {
+  const [search, setSearch] = useState("");
+  const [nationality, setNationality] = useState("");
+
+  const filtered = students.filter((s) =>
+    s.name.toLowerCase().includes(search.toLowerCase()) &&
+    (nationality === "" || s.nationality === nationality)
+  );
+
   return (
     <div>
-      {students.map((s) => (
-        <StudentCard key={s.id} name={s.name} studentNumber={s.studentNumber} nationality={s.nationality} />
-      ))}
-    </div>
+       <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search by name..." />
+       <select value={nationality} onChange={(e) => setNationality(e.target.value)}>
+         <option value="">All nationalities</option>
+         <option value="Sri Lanka">Sri Lanka</option>
+         <option value="Japan">Japan</option>
+         <option value="Philippines">Philippines</option>
+       </select>
+       {filtered.map((s) => (
+         <StudentCard key={s.id} name={s.name} studentNumber={s.studentNumber} nationality={s.nationality} />
+       ))}
+     </div>
   );
 }
 
