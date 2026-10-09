@@ -1,5 +1,6 @@
 import { useState } from "react";
 import StudentCard from "./StudentCard";
+import { Link } from "react-router-dom";
 
 const students = [
   { id: 1, name: "Oshadha", studentNumber: "202520", nationality: "Sri Lanka" },
@@ -26,8 +27,10 @@ function StudentList() {
          <option value="Philippines">Philippines</option>
        </select>
        {filtered.map((s) => (
-         <StudentCard key={s.id} name={s.name} studentNumber={s.studentNumber} nationality={s.nationality} />
-       ))}
+        <Link key={s.id} to={`/students/${s.id}`} style={{ textDecoration: "none", color: "inherit" }}>
+          <StudentCard name={s.name} studentNumber={s.studentNumber} nationality={s.nationality} />
+        </Link>
+        ))}
      </div>
   );
 }
