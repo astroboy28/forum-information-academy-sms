@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import StudentList from "./StudentList";
 import StudentDetail from "./StudentDetail";
+import StudentFormPage from "./pages/StudentFormPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/students" element={<StudentList />} />
         <Route path="/students/:id" element={<StudentDetail />} />
+        <Route path="/students/new" element={<StudentFormPage />} />
       </Routes>
     </BrowserRouter>
   );
